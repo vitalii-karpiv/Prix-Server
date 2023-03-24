@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.mapstruct:mapstruct:1.+'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
@@ -26,6 +27,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.+'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
