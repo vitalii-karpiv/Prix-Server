@@ -1,6 +1,6 @@
 package com.vka.prix.api.dto;
 
-public class AccountListDtoIn {
+public class AccountListDtoIn extends BaseDtoOut {
 
   // TODO: filterMap
   // TODO: sorters

@@ -1,17 +1,15 @@
 package com.vka.prix.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AccountListDtoOut {
+public class AccountListDtoOut extends BaseDtoOut {
 
   private List<AccountGetDtoOut> accountList;
 

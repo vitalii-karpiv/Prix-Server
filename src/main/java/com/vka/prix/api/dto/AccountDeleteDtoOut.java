@@ -1,3 +1,3 @@
 package com.vka.prix.api.dto;
 
-public class AccountDeleteDtoOut {}
+public class AccountDeleteDtoOut extends BaseDtoOut {}

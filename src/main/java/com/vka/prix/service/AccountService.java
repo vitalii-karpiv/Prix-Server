@@ -57,9 +57,10 @@ public class AccountService {
     return accountMapper.accountToPatchDto(account);
   }
 
-  public void deleteAccount(AccountDeleteDtoIn dtoIn) {
+  public AccountDeleteDtoOut deleteAccount(AccountDeleteDtoIn dtoIn) {
     // TODO: validation goes here.
     accountRepository.deleteById(dtoIn.getId());
+    return new AccountDeleteDtoOut();
   }
 
 }
