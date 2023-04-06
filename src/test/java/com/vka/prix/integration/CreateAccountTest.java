@@ -1,8 +1,8 @@
 package com.vka.prix.integration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vka.prix.api.dto.AccountCreateDtoIn;
-import com.vka.prix.api.dto.AccountCreateDtoOut;
+import com.vka.prix.api.dto.account.AccountCreateDtoIn;
+import com.vka.prix.api.dto.account.AccountCreateDtoOut;
 import com.vka.prix.controller.AccountController;
 import com.vka.prix.service.AccountService;
 import org.junit.jupiter.api.BeforeEach;

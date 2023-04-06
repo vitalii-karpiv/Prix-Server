@@ -1,7 +1,7 @@
 package com.vka.prix.unit.service;
 
-import com.vka.prix.api.dto.AccountDeleteDtoIn;
-import com.vka.prix.api.dto.AccountDeleteDtoOut;
+import com.vka.prix.api.dto.account.AccountDeleteDtoIn;
+import com.vka.prix.api.dto.account.AccountDeleteDtoOut;
 import com.vka.prix.repository.AccountRepository;
 import com.vka.prix.service.AccountService;
 import org.junit.jupiter.api.BeforeEach;

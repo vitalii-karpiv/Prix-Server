@@ -1,8 +1,8 @@
 package com.vka.prix.unit.service;
 
-import com.vka.prix.api.dto.AccountGetDtoOut;
-import com.vka.prix.api.dto.AccountListDtoIn;
-import com.vka.prix.api.dto.AccountListDtoOut;
+import com.vka.prix.api.dto.account.AccountGetDtoOut;
+import com.vka.prix.api.dto.account.AccountListDtoIn;
+import com.vka.prix.api.dto.account.AccountListDtoOut;
 import com.vka.prix.domain.Account;
 import com.vka.prix.repository.AccountRepository;
 import com.vka.prix.service.AccountService;

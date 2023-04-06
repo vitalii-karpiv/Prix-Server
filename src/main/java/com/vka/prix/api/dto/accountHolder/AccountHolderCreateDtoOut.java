@@ -1,5 +1,7 @@
-package com.vka.prix.api.dto;
+package com.vka.prix.api.dto.accountHolder;
 
+import com.vka.prix.api.dto.BaseDtoOut;
+import com.vka.prix.domain.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,12 +11,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountCreateDtoIn extends BaseDtoOut {
+public class AccountHolderCreateDtoOut extends BaseDtoOut {
 
-  private Double balance;
-  private String color;
-  private String currency;
-  private String name;
-  private String type;
+  private String token;
 
 }
