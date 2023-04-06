@@ -1,15 +1,16 @@
-package com.vka.prix.api.dto;
+package com.vka.prix.api.dto.account;
 
+import com.vka.prix.api.dto.BaseDtoOut;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountGetDtoOut extends BaseDtoOut {
+public class AccountCreateDtoOut extends BaseDtoOut {
 
   private Long id;
   private Double balance;

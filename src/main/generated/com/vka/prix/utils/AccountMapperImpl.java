@@ -1,12 +1,12 @@
 package com.vka.prix.utils;
 
-import com.vka.prix.api.dto.AccountCreateDtoIn;
-import com.vka.prix.api.dto.AccountCreateDtoOut;
-import com.vka.prix.api.dto.AccountGetDtoOut;
-import com.vka.prix.api.dto.AccountPatchDtoIn;
-import com.vka.prix.api.dto.AccountPatchDtoOut;
-import com.vka.prix.api.dto.AccountPutDtoIn;
-import com.vka.prix.api.dto.AccountPutDtoOut;
+import com.vka.prix.api.dto.account.AccountCreateDtoIn;
+import com.vka.prix.api.dto.account.AccountCreateDtoOut;
+import com.vka.prix.api.dto.account.AccountGetDtoOut;
+import com.vka.prix.api.dto.account.AccountPatchDtoIn;
+import com.vka.prix.api.dto.account.AccountPatchDtoOut;
+import com.vka.prix.api.dto.account.AccountPutDtoIn;
+import com.vka.prix.api.dto.account.AccountPutDtoOut;
 import com.vka.prix.domain.Account;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-03-24T12:32:33+0200",
+    date = "2023-04-05T23:50:43+0300",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.4.1 (Oracle Corporation)"
 )
 public class AccountMapperImpl implements AccountMapper {

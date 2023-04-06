@@ -1,5 +1,6 @@
-package com.vka.prix.api.dto;
+package com.vka.prix.api.dto.account;
 
+import com.vka.prix.api.dto.BaseDtoOut;
 import lombok.*;
 
 import java.util.List;

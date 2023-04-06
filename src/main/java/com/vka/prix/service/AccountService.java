@@ -1,15 +1,15 @@
 package com.vka.prix.service;
 
-import com.vka.prix.api.dto.*;
+import com.vka.prix.api.dto.account.*;
 import com.vka.prix.domain.Account;
 import com.vka.prix.repository.AccountRepository;
 import com.vka.prix.utils.AccountMapper;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class AccountService {
 
   private static final AccountMapper accountMapper = AccountMapper.INSTANCE;

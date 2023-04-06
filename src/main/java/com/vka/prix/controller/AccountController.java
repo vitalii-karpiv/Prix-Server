@@ -1,6 +1,6 @@
 package com.vka.prix.controller;
 
-import com.vka.prix.api.dto.*;
+import com.vka.prix.api.dto.account.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import com.vka.prix.service.AccountService;

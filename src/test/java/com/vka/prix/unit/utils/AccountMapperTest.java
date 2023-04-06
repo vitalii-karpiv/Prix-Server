@@ -1,6 +1,6 @@
 package com.vka.prix.unit.utils;
 
-import com.vka.prix.api.dto.*;
+import com.vka.prix.api.dto.account.*;
 import com.vka.prix.domain.Account;
 import com.vka.prix.utils.AccountMapper;
 import org.junit.jupiter.api.Test;
