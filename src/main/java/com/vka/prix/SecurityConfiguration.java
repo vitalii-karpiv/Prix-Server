@@ -27,6 +27,8 @@ public class SecurityConfiguration {
             .authorizeHttpRequests()
             .requestMatchers("/api/v1/auth/**")
             .permitAll()
+            .requestMatchers("/error")
+            .permitAll()
             .anyRequest()
             .authenticated()
             .and()
@@ -38,5 +40,4 @@ public class SecurityConfiguration {
 
     return http.build();
   }
-
 }

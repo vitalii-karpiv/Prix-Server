@@ -5,11 +5,13 @@ import com.vka.prix.api.dto.accountHolder.AccountHolderCreateDtoOut;
 import com.vka.prix.api.dto.authentication.AuthenticateDtoIn;
 import com.vka.prix.api.dto.authentication.AuthenticateDtoOut;
 import com.vka.prix.domain.AccountHolder;
+import com.vka.prix.domain.Role;
 import com.vka.prix.repository.AccountHolderRepository;
 import com.vka.prix.utils.AccountHolderMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,11 +21,17 @@ public class AuthenticationService {
   private final AccountHolderRepository accountHolderRepository;
   private final AuthenticationManager authenticationManager;
   private final JwtService jwtService;
+  private final PasswordEncoder passwordEncoder;
 
   private static final AccountHolderMapper accountHolderMapper = AccountHolderMapper.INSTANCE;
 
   public AccountHolderCreateDtoOut register(AccountHolderCreateDtoIn dtoIn) {
-    AccountHolder accountHolder = accountHolderRepository.save(accountHolderMapper.dtoToAccount(dtoIn));
+    AccountHolder ah = AccountHolder.builder()
+            .email(dtoIn.getEmail())
+            .password(passwordEncoder.encode(dtoIn.getPassword()))
+            .role(Role.USER)
+            .build();
+    AccountHolder accountHolder = accountHolderRepository.save(ah);
     String token = jwtService.generateToken(accountHolder);
     return new AccountHolderCreateDtoOut(token);
   }
