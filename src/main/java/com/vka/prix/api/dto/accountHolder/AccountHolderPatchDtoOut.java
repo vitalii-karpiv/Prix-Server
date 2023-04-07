@@ -11,8 +11,11 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountHolderCreateDtoOut extends BaseDtoOut {
+public class AccountHolderPatchDtoOut extends BaseDtoOut {
 
-  private String token;
+  private Long id;
+  private String email;
+  private String password;
+  private Role role;
 
 }

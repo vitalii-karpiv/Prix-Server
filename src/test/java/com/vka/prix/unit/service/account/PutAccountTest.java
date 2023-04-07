@@ -1,4 +1,4 @@
-package com.vka.prix.unit.service;
+package com.vka.prix.unit.service.account;
 
 import com.vka.prix.api.dto.account.AccountPutDtoIn;
 import com.vka.prix.api.dto.account.AccountPutDtoOut;

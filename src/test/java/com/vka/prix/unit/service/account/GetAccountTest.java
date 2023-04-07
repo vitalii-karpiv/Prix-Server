@@ -1,8 +1,7 @@
-package com.vka.prix.unit.service;
+package com.vka.prix.unit.service.account;
 
+import com.vka.prix.api.dto.account.AccountGetDtoIn;
 import com.vka.prix.api.dto.account.AccountGetDtoOut;
-import com.vka.prix.api.dto.account.AccountListDtoIn;
-import com.vka.prix.api.dto.account.AccountListDtoOut;
 import com.vka.prix.domain.Account;
 import com.vka.prix.repository.AccountRepository;
 import com.vka.prix.service.AccountService;
@@ -12,12 +11,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-class ListAccountTest {
+class GetAccountTest {
 
   private AccountService accountService;
 
@@ -33,25 +32,24 @@ class ListAccountTest {
   }
 
   @Test
-  void testListAccountById() {
+  void testGetAccountById() {
     // given
     Long accountId = 1L;
-    AccountListDtoIn dtoIn = new AccountListDtoIn();
+    AccountGetDtoIn dtoIn = new AccountGetDtoIn(accountId);
     Account account = new Account(accountId, 1000.0, "red", "USD", "Checking", "Asset");
 
     // when
-    when(accountRepository.findAll()).thenReturn(List.of(account));
-    AccountListDtoOut dtoOut = accountService.listAccounts(dtoIn);
+    when(accountRepository.findById(accountId)).thenReturn(Optional.of(account));
+    AccountGetDtoOut dtoOut = accountService.getAccountById(dtoIn);
 
     // then
     assertNotNull(dtoOut.getErrorMap());
     assertTrue(dtoOut.getErrorMap().isEmpty());
-    AccountGetDtoOut accountGetDtoOut = dtoOut.getAccountList().get(0);
-    assertEquals(accountId, accountGetDtoOut.getId());
-    assertEquals(1000.0, accountGetDtoOut.getBalance());
-    assertEquals("red", accountGetDtoOut.getColor());
-    assertEquals("USD", accountGetDtoOut.getCurrency());
-    assertEquals("Checking", accountGetDtoOut.getName());
-    assertEquals("Asset", accountGetDtoOut.getType());
+    assertEquals(accountId, dtoOut.getId());
+    assertEquals(1000.0, dtoOut.getBalance());
+    assertEquals("red", dtoOut.getColor());
+    assertEquals("USD", dtoOut.getCurrency());
+    assertEquals("Checking", dtoOut.getName());
+    assertEquals("Asset", dtoOut.getType());
   }
 }

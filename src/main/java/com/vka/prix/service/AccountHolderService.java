@@ -4,14 +4,11 @@ import com.vka.prix.api.dto.accountHolder.*;
 import com.vka.prix.domain.AccountHolder;
 import com.vka.prix.repository.AccountHolderRepository;
 import com.vka.prix.utils.AccountHolderMapper;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,17 +37,18 @@ public class AccountHolderService implements UserDetailsService {
             .build();
   }
 
-  public AccountHolderCreateDtoOut createAccountHolder(AccountHolderCreateDtoIn dtoIn) {
-    // TODO: validation
-    AccountHolder accountHolder = accountHolderRepository.save(accountHolderMapper.dtoToAccount(dtoIn));
-    return accountHolderMapper.accountToCreateDto(accountHolder);
-  }
-
-  public AccountHolderUpdateDtoOut updateAccountHolder(AccountHolderUpdateDtoIn dtoIn) {
+  public AccountHolderPatchDtoOut patchAccountHolder(AccountHolderPatchDtoIn dtoIn) {
     // TODO: validation
     // TODO: properly update ah
-    AccountHolder accountHolder = accountHolderRepository.save(accountHolderMapper.dtoToAccount(dtoIn));
-    return accountHolderMapper.accountToUpdateDto(accountHolder);
+    AccountHolder accountHolder = accountHolderRepository.save(accountHolderMapper.dtoToAccountHolder(dtoIn));
+    return accountHolderMapper.accountToPatchDto(accountHolder);
+  }
+
+  public AccountHolderPutDtoOut putAccountHolder(AccountHolderPutDtoIn dtoIn) {
+    // TODO: validation
+    // TODO: properly update ah
+    AccountHolder accountHolder = accountHolderRepository.save(accountHolderMapper.dtoToAccountHolder(dtoIn));
+    return accountHolderMapper.accountToPutDto(accountHolder);
   }
 
   public AccountHolderDeleteDtoOut deleteAccountHolder(AccountHolderDeleteDtoIn dtoIn) {

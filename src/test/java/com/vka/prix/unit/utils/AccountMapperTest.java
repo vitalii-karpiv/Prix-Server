@@ -37,7 +37,7 @@ class AccountMapperTest {
   @Test
   void testAccountToListDto() {
     // given
-    List<Account> accountList = Arrays.asList(new Account(1L, 1000.0, "red", "USD", "Checking", "Asset"));
+    List<Account> accountList = List.of(new Account(1L, 1000.0, "red", "USD", "Checking", "Asset"));
 
     // when
     List<AccountGetDtoOut> dtoOut = mapper.accountToListDto(accountList);

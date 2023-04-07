@@ -1,14 +1,12 @@
 package com.vka.prix.controller;
 
-import com.vka.prix.api.dto.accountHolder.AccountHolderCreateDtoIn;
-import com.vka.prix.api.dto.accountHolder.AccountHolderCreateDtoOut;
+import com.vka.prix.api.dto.authentication.RegisterDtoIn;
+import com.vka.prix.api.dto.authentication.RegisterDtoOut;
 import com.vka.prix.api.dto.authentication.AuthenticateDtoIn;
 import com.vka.prix.api.dto.authentication.AuthenticateDtoOut;
-import com.vka.prix.service.AccountHolderService;
 import com.vka.prix.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,8 +23,8 @@ public class AuthenticationController {
   }
 
   @PostMapping("/register")
-  @ResponseStatus(code = HttpStatus.OK)
-  public AccountHolderCreateDtoOut register(@RequestBody AccountHolderCreateDtoIn request) {
+  @ResponseStatus(code = HttpStatus.CREATED)
+  public RegisterDtoOut register(@RequestBody RegisterDtoIn request) {
     return authenticationService.register(request);
   }
 

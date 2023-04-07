@@ -18,18 +18,17 @@ public interface AccountHolderMapper {
   AccountHolderGetDtoOut accountToGetDto(AccountHolder account);
 
   @Mapping(target = "errorMap", ignore = true)
-  AccountHolderCreateDtoOut accountToCreateDto(AccountHolder account);
+  AccountHolderPatchDtoOut accountToPatchDto(AccountHolder account);
 
   @Mapping(target = "errorMap", ignore = true)
-  AccountHolderUpdateDtoOut accountToUpdateDto(AccountHolder account);
+  AccountHolderPutDtoOut accountToPutDto(AccountHolder account);
 
   List<AccountHolderGetDtoOut> accountToListDto(List<AccountHolder> accountList);
 
   // From DTO to account
-  @Mapping(target = "id", ignore = true)
-  AccountHolder dtoToAccount(AccountHolderCreateDtoIn dtoIn);
+  AccountHolder dtoToAccountHolder(AccountHolderPatchDtoIn dtoIn);
 
-  AccountHolder dtoToAccount(AccountHolderUpdateDtoIn dtoIn);
+  AccountHolder dtoToAccountHolder(AccountHolderPutDtoIn dtoIn);
 
 
 }

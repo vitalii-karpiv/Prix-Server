@@ -1,7 +1,7 @@
 package com.vka.prix.service;
 
-import com.vka.prix.api.dto.accountHolder.AccountHolderCreateDtoIn;
-import com.vka.prix.api.dto.accountHolder.AccountHolderCreateDtoOut;
+import com.vka.prix.api.dto.authentication.RegisterDtoIn;
+import com.vka.prix.api.dto.authentication.RegisterDtoOut;
 import com.vka.prix.api.dto.authentication.AuthenticateDtoIn;
 import com.vka.prix.api.dto.authentication.AuthenticateDtoOut;
 import com.vka.prix.domain.AccountHolder;
@@ -25,7 +25,7 @@ public class AuthenticationService {
 
   private static final AccountHolderMapper accountHolderMapper = AccountHolderMapper.INSTANCE;
 
-  public AccountHolderCreateDtoOut register(AccountHolderCreateDtoIn dtoIn) {
+  public RegisterDtoOut register(RegisterDtoIn dtoIn) {
     AccountHolder ah = AccountHolder.builder()
             .email(dtoIn.getEmail())
             .password(passwordEncoder.encode(dtoIn.getPassword()))
@@ -33,7 +33,7 @@ public class AuthenticationService {
             .build();
     AccountHolder accountHolder = accountHolderRepository.save(ah);
     String token = jwtService.generateToken(accountHolder);
-    return new AccountHolderCreateDtoOut(token);
+    return new RegisterDtoOut(token);
   }
 
   public AuthenticateDtoOut authenticate(AuthenticateDtoIn dtoIn) {

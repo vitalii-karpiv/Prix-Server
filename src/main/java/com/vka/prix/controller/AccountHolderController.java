@@ -26,16 +26,16 @@ public class AccountHolderController {
     return accountHolderService.listAccountHolders(new AccountHolderListDtoIn());
   }
 
-  @PostMapping
-  @ResponseStatus(code = HttpStatus.CREATED)
-  public AccountHolderCreateDtoOut createAccount(@RequestBody AccountHolderCreateDtoIn dtoIn) {
-    return accountHolderService.createAccountHolder(dtoIn);
-  }
-
   @PatchMapping
   @ResponseStatus(code = HttpStatus.OK)
-  public AccountHolderUpdateDtoOut updateAccountHolder(@RequestBody AccountHolderUpdateDtoIn dtoIn) {
-    return accountHolderService.updateAccountHolder(dtoIn);
+  public AccountHolderPatchDtoOut patchAccountHolder(@RequestBody AccountHolderPatchDtoIn dtoIn) {
+    return accountHolderService.patchAccountHolder(dtoIn);
+  }
+
+  @PutMapping
+  @ResponseStatus(code = HttpStatus.OK)
+  public AccountHolderPutDtoOut putAccountHolder(@RequestBody AccountHolderPutDtoIn dtoIn) {
+    return accountHolderService.putAccountHolder(dtoIn);
   }
 
   @DeleteMapping("/{id}")

@@ -1,10 +1,10 @@
 package com.vka.prix.utils;
 
-import com.vka.prix.api.dto.accountHolder.AccountHolderCreateDtoIn;
-import com.vka.prix.api.dto.accountHolder.AccountHolderCreateDtoOut;
 import com.vka.prix.api.dto.accountHolder.AccountHolderGetDtoOut;
-import com.vka.prix.api.dto.accountHolder.AccountHolderUpdateDtoIn;
-import com.vka.prix.api.dto.accountHolder.AccountHolderUpdateDtoOut;
+import com.vka.prix.api.dto.accountHolder.AccountHolderPatchDtoIn;
+import com.vka.prix.api.dto.accountHolder.AccountHolderPatchDtoOut;
+import com.vka.prix.api.dto.accountHolder.AccountHolderPutDtoIn;
+import com.vka.prix.api.dto.accountHolder.AccountHolderPutDtoOut;
 import com.vka.prix.domain.AccountHolder;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-06T22:53:14+0300",
+    date = "2023-04-07T17:35:33+0300",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.4.1 (Oracle Corporation)"
 )
 public class AccountHolderMapperImpl implements AccountHolderMapper {
@@ -34,30 +34,35 @@ public class AccountHolderMapperImpl implements AccountHolderMapper {
     }
 
     @Override
-    public AccountHolderCreateDtoOut accountToCreateDto(AccountHolder account) {
+    public AccountHolderPatchDtoOut accountToPatchDto(AccountHolder account) {
         if ( account == null ) {
             return null;
         }
 
-        AccountHolderCreateDtoOut accountHolderCreateDtoOut = new AccountHolderCreateDtoOut();
+        AccountHolderPatchDtoOut accountHolderPatchDtoOut = new AccountHolderPatchDtoOut();
 
-        return accountHolderCreateDtoOut;
+        accountHolderPatchDtoOut.setId( account.getId() );
+        accountHolderPatchDtoOut.setEmail( account.getEmail() );
+        accountHolderPatchDtoOut.setPassword( account.getPassword() );
+        accountHolderPatchDtoOut.setRole( account.getRole() );
+
+        return accountHolderPatchDtoOut;
     }
 
     @Override
-    public AccountHolderUpdateDtoOut accountToUpdateDto(AccountHolder account) {
+    public AccountHolderPutDtoOut accountToPutDto(AccountHolder account) {
         if ( account == null ) {
             return null;
         }
 
-        AccountHolderUpdateDtoOut accountHolderUpdateDtoOut = new AccountHolderUpdateDtoOut();
+        AccountHolderPutDtoOut accountHolderPutDtoOut = new AccountHolderPutDtoOut();
 
-        accountHolderUpdateDtoOut.setId( account.getId() );
-        accountHolderUpdateDtoOut.setEmail( account.getEmail() );
-        accountHolderUpdateDtoOut.setPassword( account.getPassword() );
-        accountHolderUpdateDtoOut.setRole( account.getRole() );
+        accountHolderPutDtoOut.setId( account.getId() );
+        accountHolderPutDtoOut.setEmail( account.getEmail() );
+        accountHolderPutDtoOut.setPassword( account.getPassword() );
+        accountHolderPutDtoOut.setRole( account.getRole() );
 
-        return accountHolderUpdateDtoOut;
+        return accountHolderPutDtoOut;
     }
 
     @Override
@@ -75,33 +80,34 @@ public class AccountHolderMapperImpl implements AccountHolderMapper {
     }
 
     @Override
-    public AccountHolder dtoToAccount(AccountHolderCreateDtoIn dtoIn) {
+    public AccountHolder dtoToAccountHolder(AccountHolderPatchDtoIn dtoIn) {
         if ( dtoIn == null ) {
             return null;
         }
 
-        AccountHolder accountHolder = new AccountHolder();
+        AccountHolder.AccountHolderBuilder accountHolder = AccountHolder.builder();
 
-        accountHolder.setEmail( dtoIn.getEmail() );
-        accountHolder.setPassword( dtoIn.getPassword() );
-        accountHolder.setRole( dtoIn.getRole() );
+        accountHolder.id( dtoIn.getId() );
+        accountHolder.email( dtoIn.getEmail() );
+        accountHolder.password( dtoIn.getPassword() );
+        accountHolder.role( dtoIn.getRole() );
 
-        return accountHolder;
+        return accountHolder.build();
     }
 
     @Override
-    public AccountHolder dtoToAccount(AccountHolderUpdateDtoIn dtoIn) {
+    public AccountHolder dtoToAccountHolder(AccountHolderPutDtoIn dtoIn) {
         if ( dtoIn == null ) {
             return null;
         }
 
-        AccountHolder accountHolder = new AccountHolder();
+        AccountHolder.AccountHolderBuilder accountHolder = AccountHolder.builder();
 
-        accountHolder.setId( dtoIn.getId() );
-        accountHolder.setEmail( dtoIn.getEmail() );
-        accountHolder.setPassword( dtoIn.getPassword() );
-        accountHolder.setRole( dtoIn.getRole() );
+        accountHolder.id( dtoIn.getId() );
+        accountHolder.email( dtoIn.getEmail() );
+        accountHolder.password( dtoIn.getPassword() );
+        accountHolder.role( dtoIn.getRole() );
 
-        return accountHolder;
+        return accountHolder.build();
     }
 }
