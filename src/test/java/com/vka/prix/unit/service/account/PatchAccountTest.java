@@ -34,9 +34,9 @@ class PatchAccountTest {
   void testPatchHDS() {
     // given
     Long accountId = 1L;
-    AccountPatchDtoIn dtoIn = new AccountPatchDtoIn(accountId, 1000.0, "red", "USD", "Checking1", "Asset1");
+    AccountPatchDtoIn dtoIn = new AccountPatchDtoIn(accountId, 1000.0, "red", "USD", null, null);
     Account account = new Account(accountId, 1000.0, "blue", "USD", "Checking", "Asset");
-    Account updated = new Account(accountId, 1000.0, "red", "USD", "Checking1", "Asset1");
+    Account updated = new Account(accountId, 1000.0, "red", "USD", "Checking", "Asset");
 
     // when
     when(accountRepository.findById(accountId)).thenReturn(Optional.of(account));
@@ -50,7 +50,7 @@ class PatchAccountTest {
     assertEquals(1000.0, dtoOut.getBalance());
     assertEquals("red", dtoOut.getColor());
     assertEquals("USD", dtoOut.getCurrency());
-    assertEquals("Checking1", dtoOut.getName());
-    assertEquals("Asset1", dtoOut.getType());
+    assertEquals("Checking", dtoOut.getName());
+    assertEquals("Asset", dtoOut.getType());
   }
 }
